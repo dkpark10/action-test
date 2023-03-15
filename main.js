@@ -1,4 +1,3 @@
-const { slackBotToken } = require("./secret");
 const { WebClient } = require("@slack/web-api");
 
 /**
@@ -7,8 +6,10 @@ const { WebClient } = require("@slack/web-api");
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
 (async function () {
-  const token = slackBotToken;
 
+  const isLocalSave = process.argv[2] && process.argv[2] === "local";
+
+  const token = isLocalSave ? require("./secret") : process.env.SLACK_BOT_TOKEN;
   const web = new WebClient(token);
 
   const baseURL = "http://api.shopping.zum.com:8080/data/front?slot=cjShoppingTabV1";
