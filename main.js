@@ -8,6 +8,7 @@ process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 (async function () {
   const token = process.env.SLACK_BOT_TOKEN;
   const web = new WebClient(token);
+  console.log(token, "11111");
 
   const baseURL = "http://api.shopping.zum.com:8080/data/front?slot=cjShoppingTabV1";
   const date = new Date();
