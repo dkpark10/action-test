@@ -9,7 +9,7 @@ on:
 jobs:
   slackNotification:
     name: Slack Notification
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     env:
       SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
 
@@ -24,5 +24,5 @@ jobs:
       run: |
         ls
         echo ${{ github.workspace }}
-        echo  $SLACK_BOT_TOKEN
+        echo $SLACK_BOT_TOKEN
         node ${{ github.workspace }}/main.js 
