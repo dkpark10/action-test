@@ -1,0 +1,17 @@
+{
+  "name": "actiontest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.20.0"
+  },
+  "devDependencies": {
+    "@slack/web-api": "^6.8.1"
+  }
+}
