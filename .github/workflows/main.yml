@@ -18,6 +18,11 @@ jobs:
       with:
         ref: feature/bot
 
+    - name: Extract branch name
+      shell: bash
+      run: echo "branch=$(echo ${GITHUB_REF#refs/heads/})" >>$GITHUB_OUTPUT
+      id: extract_branch
+
     - name: Set timezone
       run: sudo ln -sf /usr/share/zoneinfo/Asia/Seoul /etc/localtime
 
@@ -28,6 +33,7 @@ jobs:
       run: |
         ls
         echo runner time: $(date)
-        echo "self hosted runner current node version: $(node --version)"
+        echo executed branch: ${{ steps.extract_branch.outputs.branch }}
+        echo "runner current node version: $(node --version)"
         echo ${{ github.workspace }}
         node ${{ github.workspace }}/main.js
