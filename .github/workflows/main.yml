@@ -3,7 +3,7 @@ name: 'shop-logbot'
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 0,17 * * *'
+    - cron: '0 0,18 * * *'
 
 jobs:
   slackNotification:
@@ -18,13 +18,16 @@ jobs:
       with:
         ref: feature/bot
 
+    - name: Set timezone
+      run: sudo ln -sf /usr/share/zoneinfo/Asia/Seoul /etc/localtime
+
     - name: Install Dependencies
       run: yarn install --frozen-lockfile --no-progress --no-color --emoji=false
 
     - name: Slack Notification
       run: |
         ls
-        echo $(date)
+        echo runner time: $(date)
         echo "self hosted runner current node version: $(node --version)"
         echo ${{ github.workspace }}
         node ${{ github.workspace }}/main.js
