@@ -1,21 +1,21 @@
 name: 'shop-logbot'
 
-# on:
-#   schedule:
-#     - cron: '0 12 * * *'
 on:
   workflow_dispatch:
+  schedule:
+    - cron: '0 0,17 * * *'
 
 jobs:
   slackNotification:
     name: Slack Notification
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     env:
       SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
 
     steps:
     - name: checkout
       uses: actions/checkout@v3
+      ref: feature/bot
 
     - name: Install Dependencies
       run: yarn install --frozen-lockfile --no-progress --no-color --emoji=false
@@ -23,6 +23,6 @@ jobs:
     - name: Slack Notification
       run: |
         ls
+        echo "self hosted runner current node version: $(node --version)"
         echo ${{ github.workspace }}
-        echo $SLACK_BOT_TOKEN
         node ${{ github.workspace }}/main.js 
