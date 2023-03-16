@@ -3,7 +3,7 @@ name: 'shop-logbot'
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 0,18 * * *'
+    - cron: '30 0,18 * * *'
 
 jobs:
   slackNotification:
@@ -15,8 +15,6 @@ jobs:
     steps:
     - name: checkout
       uses: actions/checkout@v3
-      with:
-        ref: feature/bot
 
     - name: Extract branch name
       shell: bash
