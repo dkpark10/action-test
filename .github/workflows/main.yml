@@ -2,8 +2,6 @@ name: 'shop-logbot'
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: '30 0,18 * * *'
 
 jobs:
   slackNotification:
