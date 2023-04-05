@@ -34,7 +34,7 @@ process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
   try {
     const { data } = await axios.get(cjShoppingUrl);
     const regEx =
-      /window.shoppingZum=[ㄱ-ㅎㅏ-ㅣ가-힣a-zA-Z0-9\s{}[\]/?.,;:|)*~`!^-_+<>@#$%&\\=('"]*<\/script>/g;
+      /window.shoppingZum=[ㄱ-ㅎㅏ-ㅣ가-힣a-zA-Z0-9\s{}[\]/?.,;:|)*~`!^-_+-<>@#$%&\\=('"]*\}\]\}\}/g;
 
     const flattendHtml = data
       .split(" ")
@@ -48,8 +48,7 @@ process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
       .join("");
 
     const beginIndex = "window.shoppingZum=".length;
-    const endIndex = "</script>".length;
-    const { cjoneMainData } = JSON.parse(flattendHtml.match(regEx)[0].slice(beginIndex, -endIndex));
+    const { cjoneMainData } = JSON.parse(flattendHtml.match(regEx)[0].slice(beginIndex));
 
     let cjDataMalls = {};
     /**
