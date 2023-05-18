@@ -62,7 +62,7 @@ process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
       };
     });
 
-    const channel = "#쇼핑로그";
+    const channel = "C04TDGG3FNJ";
     const text = `*${updatedTime}*\n` + "```\n" + JSON.stringify(cjDataMalls, null, 2) + "\n```";
     const result = await web.chat.postMessage({
       channel,
