@@ -33,8 +33,8 @@ process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
   try {
     const { data } = await axios.get(cjShoppingUrl);
-    const regEx = /window.shoppingZum=[ㄱ-ㅎㅏ-ㅣ가-힣a-zA-Z0-9\s{}[\]/?.,;:|)*~`!^-_+-<>@#$%&↓\\=('"]*\s/g;
- 
+    const regEx = /window.shoppingZum=(.*?)*\s/g;
+
     const flattendHtml = data
       .split(" ")
       .filter((item) => item !== "")
