@@ -1,0 +1,32 @@
+name: 'multi-job'
+
+on:
+  workflow_dispatch:
+
+jobs:
+  self-hosted-runner-job:
+    name: Self Hosted Runner Job
+    runs-on: self-hosted
+
+    steps:
+      - name: Dump Github Context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
+
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Print current directory
+        run: pwd
+
+      - name: Run Script
+        run: node ${{ github.workspace }}/script.js
+
+  second-job:
+    name: Second Job
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Run Script
+        run: node -e "console.log(123)"
