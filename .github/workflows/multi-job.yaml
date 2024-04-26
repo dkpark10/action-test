@@ -23,10 +23,7 @@ jobs:
       - name: Run Script
         run: node ${{ github.workspace }}/script.js
 
-  second-job:
-    name: Second Job
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Run Script
-        run: node -e "console.log(123)"
+      - name: Check Condition
+        if: failure()
+        run: echo "fail"
+        
