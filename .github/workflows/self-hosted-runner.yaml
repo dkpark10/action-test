@@ -7,7 +7,7 @@ jobs:
   self-hosted-runner-job:
     name: Self Hosted Runner Job
     runs-on: self-hosted
-    timeout-minutes: 10
+    timeout-minutes: 5
 
     steps:
       - name: Dump Github Context
@@ -22,7 +22,6 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '18'
-          cache: 'yarn'
 
       - name: Dependencies Install
         run: yarn

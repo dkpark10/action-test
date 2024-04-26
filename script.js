@@ -10,3 +10,5 @@ fetch('https://nextnext-teal.vercel.app/api/todo')
   .catch((err) => {
     console.error(err);
   });
+
+throw new Error('err')
