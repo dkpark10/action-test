@@ -7,5 +7,4 @@ fetch('http://localhost:8080/api/contents')
   })
   .catch((err) => {
     console.error(err);
-    throw new Error(err);
   });

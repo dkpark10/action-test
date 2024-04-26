@@ -23,13 +23,23 @@ jobs:
           node-version: 18
           cache: 'yarn'
 
+      - name: Dependencies Install
+        run: yarn
+
+      - name: Run Server
+        run: yarn server:dev
+
       - name: Print current directory
         run: pwd
 
       - name: Run Script
         run: node ${{ github.workspace }}/script.js
 
-      - name: Check Condition
+      - name: Check Condition Failure
         if: failure()
-        run: echo "fail"
+        run: echo "fail job"
+
+      - name: Check Condition Success
+        if: success()
+        run: echo "success job"
         
