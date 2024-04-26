@@ -1,6 +1,8 @@
 console.log('123', typeof window);
 
-fetch('http://localhost:8080/api/contents')
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+
+fetch('https://nextnext-teal.vercel.app/api/todo')
   .then((res) => res.json())
   .then((res) => {
     console.log(res);
