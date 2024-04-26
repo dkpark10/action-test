@@ -6,6 +6,6 @@ fetch('http://localhost:8080/api/contents')
     console.log(res);
   })
   .catch((err) => {
-    console.err(err);
+    console.error(err);
     throw new Error(err);
   });

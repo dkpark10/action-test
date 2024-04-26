@@ -1,4 +1,4 @@
-name: 'multi-job'
+name: 'Self Hosted Runner'
 
 on:
   workflow_dispatch:
@@ -16,6 +16,12 @@ jobs:
 
       - name: Checkout
         uses: actions/checkout@v3
+
+      - name: Setup node.js 18
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: 'yarn'
 
       - name: Print current directory
         run: pwd
