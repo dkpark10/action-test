@@ -7,6 +7,7 @@ jobs:
   self-hosted-runner-job:
     name: Self Hosted Runner Job
     runs-on: self-hosted
+    timeout-minutes: 10
 
     steps:
       - name: Dump Github Context
@@ -25,9 +26,6 @@ jobs:
 
       - name: Dependencies Install
         run: yarn
-
-      - name: Run Server
-        run: yarn server:dev
 
       - name: Print current directory
         run: pwd
