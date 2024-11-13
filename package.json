@@ -15,6 +15,7 @@
     "helmet": "^7.1.0"
   },
   "devDependencies": {
-    "@slack/web-api": "^6.8.1"
+    "@slack/web-api": "^6.8.1",
+    "gh-pages": "^6.2.0"
   }
 }
