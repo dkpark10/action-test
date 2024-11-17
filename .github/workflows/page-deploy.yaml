@@ -43,9 +43,16 @@ jobs:
           folder: page
           clean: false
 
+      - name: Echo ctx
+        run: | 
+          echo "${{ github.repository }}"
+          echo "${{ github.repository_id }}"
+          echo "${{ github.repository_owner }}"
+          echo "${{ github.repository_owner_id }}"
+
       - name: Show Page Info
         uses: marocchino/sticky-pull-request-comment@v2
         with:
           message: |
             > :rocket: Deployed page of ${{ github.event.pull_request.head.sha }}
-              https://dkpark10.github.io/${{ github.event.repository.name }}/pr/${{ github.event.number }}
+              https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/pr/${{ github.event.number }}
