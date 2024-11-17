@@ -34,12 +34,12 @@ jobs:
       - name: Make Pr Folder
         run: |
           mkdir -p pr/${{ github.event.number }}
-          cp -r page pr/${{ github.event.number }}
+          mv page pr/${{ github.event.number }}
 
       - name: Deploy page
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: page
+          folder: pr/${{ github.event.number }}
           clean: false
 
       - name: Show Page Info
@@ -47,4 +47,4 @@ jobs:
         with:
           message: |
             > :rocket: Deployed page of ${{ github.event.pull_request.head.sha }}
-              https://dkpark10.github.io/${{ github.event.repository.name }}
+              https://dkpark10.github.io/${{ github.event.repository.name }}/pr/${{ github.event.number }}
