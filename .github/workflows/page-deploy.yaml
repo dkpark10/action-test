@@ -34,7 +34,7 @@ jobs:
       - name: Make Pr Folder
         run: |
           mkdir -p pr/${{ github.event.number }}
-          cp page pr/${{ github.event.number }}
+          cp -r page pr/${{ github.event.number }}
 
       - name: Deploy page
         uses: JamesIves/github-pages-deploy-action@v4
