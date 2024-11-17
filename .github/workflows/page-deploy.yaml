@@ -43,13 +43,6 @@ jobs:
           folder: page
           clean: false
 
-      - name: Echo ctx
-        run: | 
-          echo "${{ github.repository }}"
-          echo "${{ github.repository_id }}"
-          echo "${{ github.repository_owner }}"
-          echo "${{ github.repository_owner_id }}"
-
       - name: Show Page Info
         uses: marocchino/sticky-pull-request-comment@v2
         with:
