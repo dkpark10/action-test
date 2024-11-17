@@ -1,21 +1,11 @@
 {
-  "name": "actiontest",
+  "name": "github-action-test",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "server:dev": "node server.js"
-  },
+  "description": "github action test",
+  "type":"module",
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.20.0",
-    "cors": "^2.8.5",
-    "express": "^4.19.2",
-    "helmet": "^7.1.0"
-  },
-  "devDependencies": {
-    "@slack/web-api": "^6.8.1",
-    "gh-pages": "^6.2.0"
+    "lit": "^3.2.1"
   }
 }
