@@ -32,7 +32,9 @@ jobs:
         run: pnpm i --frozen-lockfile
 
       - name: Build
-        run: pnpm run build
+        run: pnpm --filter=github-action-test-react build
+        env:
+          PUBLIC_PATH: /${{ github.event.repository.name }}/pr-${{ github.event.number }}
 
       - name: Move Pr Folder
         run: |
@@ -44,7 +46,7 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: page
-          clean: false
+          clean: true
 
       - name: Show Page Info
         uses: marocchino/sticky-pull-request-comment@v2
