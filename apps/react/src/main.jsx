@@ -10,19 +10,19 @@ import './index.css';
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: import.meta.env.BASE_URL,
     element: <Root />,
     children: [
       {
-        path: '/',
+        path: '',
         element: <Home />,
       },
       {
-        path: '/about',
+        path: 'about',
         element: <About />,
       },
       {
-        path: '/sample',
+        path: 'sample',
         element: <Sample />,
       },
     ],

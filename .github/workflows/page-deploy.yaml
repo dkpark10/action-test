@@ -34,7 +34,7 @@ jobs:
       - name: Build
         run: pnpm --filter=github-action-test-react build
         env:
-          PUBLIC_PATH: /${{ github.event.repository.name }}/pr-${{ github.event.number }}
+          PUBLIC_PATH: /${{ github.event.repository.name }}/pr-${{ github.event.number }}/
 
       - name: Move Pr Folder
         run: |
