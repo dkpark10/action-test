@@ -1,4 +1,5 @@
-import { Link, Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
+import PrefixLink from './components/prefix-link';
 
 export default function RootLayout() {
   return (
@@ -6,9 +7,9 @@ export default function RootLayout() {
       <nav>
         <ul>
           <li>
-            <Link to='/'>Home</Link>
-            <Link to='/about'>About</Link>
-            <Link to='/sample'>Sample</Link>
+            <PrefixLink to=''>Home</PrefixLink>
+            <PrefixLink to='about'>About</PrefixLink>
+            <PrefixLink to='sample'>Sample</PrefixLink>
           </li>
         </ul>
       </nav>

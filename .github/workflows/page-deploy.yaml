@@ -34,7 +34,7 @@ jobs:
       - name: Build
         run: pnpm --filter=github-action-test-react build
         env:
-          PUBLIC_PATH: /${{ github.event.repository.name }}/pr-${{ github.event.number }}
+          PUBLIC_PATH: /${{ github.event.repository.name }}/pr-${{ github.event.number }}/
 
       - name: Move Pr Folder
         run: |
@@ -46,7 +46,7 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: page
-          clean: true
+          clean: false
 
       - name: Show Page Info
         uses: marocchino/sticky-pull-request-comment@v2
