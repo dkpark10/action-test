@@ -1,6 +1,7 @@
 import { Outlet } from 'react-router-dom';
 import PrefixLink from './components/prefix-link';
 
+console.log('123');
 export default function RootLayout() {
   return (
     <div>
